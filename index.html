@@ -4,15 +4,19 @@
 <script>
 const params = new URLSearchParams(location.search);
 
-const file = params.get("file");
-const pos  = params.get("pos");
+const file = params.get("file");   // 예: 20251121_192813.mp4
+const pos  = params.get("pos");    // 예: 2000 (ms)
 
+// Chrome Intent 형식:
+// intent://host:port/path#Intent;scheme=ftp;action=android.intent.action.VIEW;i.position=...;end
 const url =
- "intent:ftp://admin:k1n$manredeemer@175.212.243.191:21/G/" +
- file +
- "#Intent;package=com.mxtech.videoplayer.pro;i.position=" +
- pos +
- ";end";
+  "intent://175.212.243.191:21/G/" +
+  file +
+  "#Intent;" +
+  "scheme=ftp;" +
+  "action=android.intent.action.VIEW;" +
+  "i.position=" + pos + ";" +
+  "end";
 
 location.href = url;
 </script>
