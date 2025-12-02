@@ -7,13 +7,13 @@ const params = new URLSearchParams(location.search);
 const file = params.get("file");   // 예: 20251121_192813.mp4
 const pos  = params.get("pos");    // 예: 2000 (ms)
 
-// Chrome Intent 형식:
-// intent://host:port/path#Intent;scheme=ftp;action=android.intent.action.VIEW;i.position=...;end
+// HTTP 서버 기준 URL 구성
+// 포트 번호(예: 8000)는 실제 HTTP 서버 설정에 맞게 바꿔주세요.
 const url =
-  "intent://175.212.243.191:21/G/" +
+  "intent://175.212.243.191:8000/" +
   file +
   "#Intent;" +
-  "scheme=ftp;" +
+  "scheme=http;" +
   "action=android.intent.action.VIEW;" +
   "i.position=" + pos + ";" +
   "end";
